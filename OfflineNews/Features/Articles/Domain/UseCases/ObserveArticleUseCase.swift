@@ -8,9 +8,9 @@
 import Foundation
 
 struct ObserveArticlesUseCase {
-    private let repository: ArticleRepository
+    private let repository: ObserveArticlesRepository
 
-    init(repository: ArticleRepository) {
+    init(repository: ObserveArticlesRepository) {
         self.repository = repository
     }
 

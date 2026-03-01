@@ -8,9 +8,9 @@
 import Foundation
 
 struct RefreshArticlesUseCase {
-    private let repository: ArticleRepository
+    private let repository: RefreshArticlesRepository
 
-    init(repository: ArticleRepository) {
+    init(repository: RefreshArticlesRepository) {
         self.repository = repository
     }
 
