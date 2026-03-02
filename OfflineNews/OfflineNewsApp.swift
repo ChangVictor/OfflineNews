@@ -11,7 +11,7 @@ import SwiftUI
 struct OfflineNewsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppRouter()
         }
     }
 }

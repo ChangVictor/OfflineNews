@@ -9,7 +9,7 @@ import Foundation
 
 protocol ArticleRemoteDataSource {
     func fetchArticles(limit: Int) async throws -> [ArticleDTO]
-    func fetchArticle(id: Int) async throws -> ArticleDTO?
+    func fetchArticle(id: Int) async throws -> ArticleDTO
 }
 
 final class SpaceFlightArticleRemoteDataSource: ArticleRemoteDataSource {
@@ -26,7 +26,7 @@ final class SpaceFlightArticleRemoteDataSource: ArticleRemoteDataSource {
         return response.results
     }
     
-    func fetchArticle(id: Int) async throws -> ArticleDTO? {
+    func fetchArticle(id: Int) async throws -> ArticleDTO {
         try await apiClient.getArticles(path: "articles/\(id)", queryItems: [])
     }
 }

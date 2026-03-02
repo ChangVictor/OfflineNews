@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		56D706692F54BE880069DE3E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56D706682F54BE880069DE3E /* RealmSwift */; };
+		56D7066A2F54BE880069DE3E /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 56D706682F54BE880069DE3E /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		56D7061C2F51DF750069DE3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,6 +27,20 @@
 			remoteInfo = OfflineNews;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		56D7066B2F54BE880069DE3E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				56D7066A2F54BE880069DE3E /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		56D7060E2F51DF740069DE3E /* OfflineNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OfflineNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D706692F54BE880069DE3E /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +98,7 @@
 				56D706102F51DF740069DE3E /* OfflineNews */,
 				56D7061E2F51DF750069DE3E /* OfflineNewsTests */,
 				56D706282F51DF750069DE3E /* OfflineNewsUITests */,
+				56D706642F54BE880069DE3E /* Frameworks */,
 				56D7060F2F51DF740069DE3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +113,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		56D706642F54BE880069DE3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +130,7 @@
 				56D7060A2F51DF740069DE3E /* Sources */,
 				56D7060B2F51DF740069DE3E /* Frameworks */,
 				56D7060C2F51DF740069DE3E /* Resources */,
+				56D7066B2F54BE880069DE3E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,6 +141,7 @@
 			);
 			name = OfflineNews;
 			packageProductDependencies = (
+				56D706682F54BE880069DE3E /* RealmSwift */,
 			);
 			productName = OfflineNews;
 			productReference = 56D7060E2F51DF740069DE3E /* OfflineNews.app */;
@@ -195,6 +225,9 @@
 			);
 			mainGroup = 56D706052F51DF740069DE3E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				56D706632F54BD1C0069DE3E /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 56D7060F2F51DF740069DE3E /* Products */;
 			projectDirPath = "";
@@ -414,7 +447,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -446,7 +479,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -578,6 +611,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		56D706632F54BD1C0069DE3E /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = community;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		56D706682F54BE880069DE3E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56D706632F54BD1C0069DE3E /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 56D706062F51DF740069DE3E /* Project object */;
 }
