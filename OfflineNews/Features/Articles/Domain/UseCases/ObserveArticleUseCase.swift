@@ -2,19 +2,19 @@
 //  ObserveArticleUseCase.swift
 //  OfflineNews
 //
-//  Created by Victor Chang on 28/2/26.
+//  Created by Victor Chang on 2/3/26.
 //
 
 import Foundation
 
-struct ObserveArticlesUseCase {
-    private let repository: ObserveArticlesRepository
+struct ObserveArticleDetailUseCase {
+    private let repository: ObserveArticleDetailRepository
 
-    init(repository: ObserveArticlesRepository) {
+    init(repository: ObserveArticleDetailRepository) {
         self.repository = repository
     }
 
-    func execute() -> AsyncThrowingStream<[Article], Error> {
-        repository.observeArticles()
+    func execute(articleID: Int) -> AsyncThrowingStream<Article?, Error> {
+        repository.observeArticle(id: articleID)
     }
 }

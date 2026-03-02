@@ -27,10 +27,14 @@ final class AppDIContainer {
     
     @MainActor
     func makeArticlesListViewModel() -> ArticlesListViewModel {
-        ArticlesListViewModel(
-            observeArticlesUseCase: ObserveArticlesUseCase(repository: articleRepository),
-            refreshArticlesUseCase: RefreshArticlesUseCase(repository: articleRepository)
-        )
+        ArticlesListViewModel(observeArticlesUseCase: ObserveArticlesUseCase(repository: articleRepository),
+                              refreshArticlesUseCase: RefreshArticlesUseCase(repository: articleRepository))
     }
 
+    @MainActor
+    func makeArticleDetailViewModel(articleID: Int) -> ArticleDetailViewModel {
+        ArticleDetailViewModel(articleId: articleID,
+                               observeArticleUseCase: ObserveArticleDetailUseCase(repository: articleRepository),
+                               refreshArticleUseCase: RefreshArticleUseCase(repository: articleRepository))
+    }
 }

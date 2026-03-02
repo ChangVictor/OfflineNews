@@ -2,19 +2,19 @@
 //  RefreshArticleUseCase.swift
 //  OfflineNews
 //
-//  Created by Victor Chang on 28/2/26.
+//  Created by Victor Chang on 2/3/26.
 //
 
 import Foundation
 
-struct RefreshArticlesUseCase {
-    private let repository: RefreshArticlesRepository
+struct RefreshArticleUseCase {
+    private let repository: RefreshArticleRepository
 
-    init(repository: RefreshArticlesRepository) {
+    init(repository: RefreshArticleRepository) {
         self.repository = repository
     }
 
-    func execute() async throws {
-        try await repository.refreshArticles()
+    func execute(articleID: Int) async throws {
+        try await repository.refreshArticle(id: articleID)
     }
 }

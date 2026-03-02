@@ -17,8 +17,11 @@ struct AppRouter: View {
 
     var body: some View {
         ArticleListView(
-            viewModel: container.makeArticlesListViewModel())
-            }
+            viewModel: container.makeArticlesListViewModel(),
+            makeArticleDetailViewModel: { articleID in
+                container.makeArticleDetailViewModel(articleID: articleID)
+            })
+        }
         
     }
 

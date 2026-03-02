@@ -9,9 +9,12 @@ import SwiftUI
 
 struct ArticleListView: View {
     @StateObject var viewModel: ArticlesListViewModel
+    private let makeArticleDetailViewModel: (Int) -> ArticleDetailViewModel
     
-    init(viewModel: ArticlesListViewModel) {
+    init(viewModel: ArticlesListViewModel,
+         makeArticleDetailViewModel: @escaping (Int) -> ArticleDetailViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.makeArticleDetailViewModel = makeArticleDetailViewModel
     }
     
     var body: some View {
@@ -34,7 +37,7 @@ struct ArticleListView: View {
             }
             .navigationTitle("Articles")
             .navigationDestination(for: Int.self) { articleId in
-                // ArticleDetailView(viewModel: )
+                ArticleDetailView(viewModel: makeArticleDetailViewModel(articleId))
             }
             .refreshable {
                 await viewModel.refresh()
