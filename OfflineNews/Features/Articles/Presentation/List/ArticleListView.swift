@@ -26,7 +26,7 @@ struct ArticleListView: View {
                 } else {
                     List(viewModel.articles) { article in
                         NavigationLink(value: article.id) {
-                            // ArticleListItemView(article: article)
+                             ArticleListItemView(article: article)
                         }
                     }
                     .listStyle(.plain)

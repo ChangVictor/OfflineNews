@@ -52,9 +52,36 @@ final class URLSessionAPIClient: APIClient {
     private func makeDecoder() -> JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
+
+        decoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let rawValue = try container.decode(String.self)
+
+            if let date = Self.parseISO8601Date(rawValue) {
+                return date
+            }
+
+            throw DecodingError.dataCorruptedError(
+                in: container,
+                debugDescription: "Invalid ISO8601 date: \(rawValue)"
+            )
+        }
+
         return decoder
     }
+    
+    private static func parseISO8601Date(_ rawValue: String) -> Date? {
+        let withFractionalSeconds = ISO8601DateFormatter()
+        withFractionalSeconds.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        if let date = withFractionalSeconds.date(from: rawValue) {
+            return date
+        }
+
+        let withoutFractionalSeconds = ISO8601DateFormatter()
+        withoutFractionalSeconds.formatOptions = [.withInternetDateTime]
+        return withoutFractionalSeconds.date(from: rawValue)
+    }
+
 }
 
 enum APIError: LocalizedError {
